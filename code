@@ -1,0 +1,18 @@
+- table: Labels
+  columns:
+    - name: Label_ID
+      type: Text
+      key: true
+    - name: so_thung_hang
+      type: Text
+      required: true
+    - name: qr_code
+      type: Image
+      app_formula: "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" & ENCODEURL([so_thung_hang])
+  views:
+    - name: Label_View
+      type: Detail
+      table: Labels
+      fields:
+        - so_thung_hang
+        - qr_code
